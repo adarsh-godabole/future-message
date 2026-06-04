@@ -21,7 +21,7 @@ const cors = require('cors');
 
 const { initDB } = require('./db');
 const { startScheduler } = require('./services/scheduler');
-const authRoutes = require('./routes/auth');
+const authRoutes = require('./middleware/auth');
 const messageRoutes = require('./routes/messages');
 
 const app = express();
