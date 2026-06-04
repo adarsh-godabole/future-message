@@ -110,7 +110,7 @@ router.post(
 );
 
 // GET /auth/me
-router.get('/me', require('../middleware/auth').authenticate, (req, res) => {
+router.get('/me', require('./auth').authenticate, (req, res) => {
   res.json({ user: req.user });
 });
 
