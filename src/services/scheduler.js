@@ -4,8 +4,8 @@ const { sendFutureMessage } = require('./emailService');
 
 const startScheduler = () => {
   // Runs every minute
-  cron.schedule('* * * * *', async () => {
-    console.log(`[Scheduler] Checking for due messages at ${new Date().toISOString()}`);
+cron.schedule('0 11 * * *', async () => {
+      console.log(`[Scheduler] Checking for due messages at ${new Date().toISOString()}`);
 
     let client;
     try {

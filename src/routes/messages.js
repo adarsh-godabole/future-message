@@ -19,15 +19,9 @@ router.post(
       .normalizeEmail()
       .withMessage('Valid recipient email is required'),
     body('recipient_name').optional().trim(),
-    body('deliver_at')
-      .isISO8601()
-      .withMessage('deliver_at must be a valid ISO 8601 date')
-      .custom((value) => {
-        if (new Date(value) <= new Date()) {
-          throw new Error('deliver_at must be a future date');
-        }
-        return true;
-      }),
+  body('deliver_at')
+  .isISO8601()
+  .withMessage('deliver_at must be a valid ISO 8601 date'),
   ],
   async (req, res) => {
     const errors = validationResult(req);
