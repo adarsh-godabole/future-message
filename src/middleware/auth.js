@@ -55,7 +55,7 @@ router.post(
       const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIRES_IN || '7d',
       });
-
+      console.log('User registered:', user.email);
       res.status(201).json({ user, token });
     } catch (err) {
       console.error('Register error:', err);
@@ -101,6 +101,7 @@ router.post(
       });
 
       const { password_hash, ...safeUser } = user;
+      console.log('Login successful for user:', safeUser.email);
       res.json({ user: safeUser, token });
     } catch (err) {
       console.error('Login error:', err);
