@@ -8,9 +8,9 @@ const router = express.Router();
 // All message routes require authentication
 router.use(authenticate);
 
-// POST /messages — create a future message
+// POST /messages/createMessage — create a future message
 router.post(
-  '/',
+  '/createMessage',
   [
     body('title').trim().notEmpty().withMessage('Title is required'),
     body('body').trim().notEmpty().withMessage('Message body is required'),
